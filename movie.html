@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Moviewiki</title>
+<link rel="stylesheet"  href="css/cssmovie.css">
+</head>
+<body>
+<div class="navbar">
+<div class="home"><a href="index.html">Home</a></div>
+  <div class="home"><a href="about.html">About</a></div>
+  <div><h1 id="countryfinder" >Moviewiki</h1></div> 
+  <div >
+  <form>
+<center>
+  <button  type="button" value="Go back!" onclick="history.back()" class="button">Go Back</button></center> <!-- goes to previous page -->
+</form></div>
+</div>
+<div class="main">
+<div class="countrydetails">                                                                          <!-- contains movie details -->
+<h1 id="title"></h1>
+
+<h2 id="year"></h2>
+<h2 id="runtime"></h2>
+<h2 id="region"></h2>
+<h2 id ="subregion"></h2>
+<h2 id ="cur"></h2>
+</div>
+<div id="img" class="countryflagdiv">                                                                 <!-- contains  movie image-->
+</div>
+</div>
+
+<script>
+
+window.onload = function () {
+    var url = document.location.href,
+	  d = {}, tmp;
+        params = url.split('?')[1].split('&');
+    for (var i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');                                       <!-- fetch the movie name from url -->
+         d[tmp[0]] = tmp[1];
+    }
+	 
+var url = "http://www.omdbapi.com/?&apikey=a86083e1&t="+d.cname;
+   fetch(url)
+  .then((resp) => resp.json()) 
+  .then(function(data) {
+                                                                          <!-- appending data to elements from json response -->
+	 document.getElementById("title").innerHTML="Movie name :"+data.Title;
+	 document.getElementById("year").innerHTML="year :"+data.Year;
+    
+	document.getElementById("subregion").innerHTML="Release :"+data.Released;
+		document.getElementById("region").innerHTML="Rated :"+data.Rated;
+
+    
+	document.getElementById("runtime").innerHTML="Runtime:"+data.Runtime;
+    
+	document.getElementById("cur").innerHTML="Genre :"+data.Genre;
+    
+	document.getElementById("img").style.backgroundImage="url("+data.Poster+")";;
+
+    })
+  .catch(function(error) {
+    console.log(error);
+  }); 
+}
+
+ 
+
+
+</script>
+</body>
+</html>

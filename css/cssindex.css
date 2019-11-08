@@ -1,0 +1,136 @@
+body {
+	  font-family:Helvetica, sans-serif;
+
+	background-color: lightgrey;
+      
+	  }
+	  
+#countryfinder {
+	float:center;
+	 display: inline-block;
+   font-family:Brush Script MT, Brush Script Std, cursive;
+  color:red;
+  font-style:italic;
+  font-size:80px;
+  margin-bottom:2px;
+  margin-top:5px;
+  margin-left:200px;
+  margin-right:0px;
+}
+#countriesfound{
+	
+	margin-top: 160px;
+	font-style: oblique;
+	
+	
+}
+
+.home{
+	display: inline-block;
+	float:left;
+	margin-bottom:1px;
+	margin-top:90px;
+}
+.main{
+	top: 150px;
+    margin-top:5px;
+	background-color:white;
+	
+}
+
+.navbar {
+	display:block;
+	float: left;
+	margin-left:0px;
+	background-image: url('../img.jpg');
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+.search-container {
+	 display: inline-block;
+	float:right;
+	 margin-bottom:5px;
+	margin-top: 0px;
+}
+#textboxid
+{
+    height:30px;
+    font-size:14pt;
+}
+
+
+.search-container button {
+	 display: inline-block;
+  float: right;
+  padding: 5px 10px;
+  margin-top: 0px;
+  margin-right: 20px;
+  background: #ddd;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+.navbar a {
+	
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.column {
+  margin-left:40px;
+  float: left;
+  width: 20%;
+  padding: 5 10px;
+}
+
+
+.row {margin: 0 -5px;
+padding: 5 15px;}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+	margin-top:20px;
+  }
+}
+
+.card a:hover {
+  background: #ccc;
+}
+.card {
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  	margin-top:20px;
+
+  text-align: center;
+  background-color: #f1f1f1;
+  height:45%;
+}

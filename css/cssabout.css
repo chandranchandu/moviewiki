@@ -1,0 +1,97 @@
+body {
+	background-color: lightgrey;
+      margin:0;
+	  }
+	  
+#countryfinder {
+	float:center;
+	 display: inline-block;
+   font-family:Brush Script MT, Brush Script Std, cursive;
+  color:red;
+  font-style:italic;
+  font-size:80px;
+  margin-bottom:2px;
+  margin-top:15px;
+  margin-left:200px;
+  margin-right:0px;
+}
+
+
+.main{
+	background-color:white;
+	top: 190px;
+	margin-top: 190px;
+	padding: 5px 5px;
+	height:65%;
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:10px;
+	border-radius: 25px;
+  border: 2px solid red;
+  
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top:0px;
+  cursor: pointer;
+  float: right;
+  margin-right:30px;
+}
+
+.navbar {
+	 
+	float: left;
+	
+	background-image: url('../img.jpg');
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.home{
+	display: inline-block;
+	float:left;
+	margin-bottom:1px;
+	margin-top:100px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.cc
+{   
+	font-family:Brush Script MT, Brush Script Std, cursive;
+	font-size:30px;
+	color:red;
+	
+}
+.txt
+{
+
+  margin-left:20px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}

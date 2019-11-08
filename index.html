@@ -1,0 +1,111 @@
+<html>
+<head>
+
+<link rel="stylesheet"  href="css/cssindex.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.imgcls {object-fit: fill;}
+</style>
+</head>
+<body>
+<div class="navbar">
+
+  <div class="home"><a href="index.html">Home</a></div>
+  <div class="home"><a href="about.html">About</a></div>
+  <div><h1 id="countryfinder" >MovieWiki</h1></div>
+  
+ <div class="search-container">
+                                                                             <!-- gets movie name to search -->
+    <input id="textboxid" type="search" placeholder="Search.." name="search" autofocus="autofocus" onSearch="myFunction()">
+    <button type="button" onclick="myFunction()"><i class="fa fa-search"></i></button> 
+	  
+    
+  </div>
+  
+</div>
+<center><h2 id="countriesfound">movies Found</h2></center>
+<div class="main"></div>
+<h1>OMDB Api fetchs one relavant result</h1>
+<script>
+window.onload = function () {
+  myFunction();                                                                
+}
+function handleErrors(response) {              <!-- 404 error-->                 
+                                               <!-- prints "no results found " when no movies matches with the given input -->
+    if (!response.ok) {                                       
+	var main = document.getElementsByClassName("main");
+	while (main[0].firstChild) {
+    main[0].removeChild(main[0].firstChild);
+	}
+	var p=document.createElement("H5");
+	var center=document.createElement("center");
+	var textnode = document.createTextNode("No Results found...");  
+    p.appendChild(textnode);
+    center.append(p);	 
+    main[0].append(center);
+	
+	
+    throw Error(response.statusText);
+    }
+    return response;
+}
+  function myFunction() {
+  
+	var main = document.getElementsByClassName("main");
+	while (main[0].firstChild) {
+    main[0].removeChild(main[0].firstChild);
+}
+   var searchtext=document.getElementById("textboxid").value;         <!-- getiing country name to be searched -->
+   
+  const url = "http://www.omdbapi.com/?apikey=a86083e1&t="+searchtext;     <!--  appendind it to api url -->
+  fetch(url)
+  .then(handleErrors)
+  .then((resp) => resp.json())
+  .then(function(data) {
+   var s=JSON.stringify(data.Title);
+  if(s.search("defined"))
+  {
+    var row = document.createElement("div");
+   // for (i in data) {              
+   
+   var col = document.createElement("div");
+   var div = document.createElement("div");
+   var imdiv = document.createElement("div");
+   var a = document.createElement("A");
+   row.className = "row";
+   col.className = "column";
+   div.className = "card ";
+   imdiv.className="imgcls";
+   var node = document.createElement("H3");
+    
+   var textnode = document.createTextNode(data.Title);  
+  
+   node.appendChild(textnode);  
+   a.append(node);  
+     
+   main[0].appendChild(row);                                            <!-- dom hierarchy( body > main > row > col > card > a > imagediv  )-->
+   row.appendChild(col);
+   col.appendChild(div);
+   div.appendChild(a);
+   a.appendChild(imdiv);
+   //div.style.height="198px";
+   imdiv.style.backgroundImage="url("+data.Poster+")";                     <!-- assigning movie image to the card  -->
+   imdiv.style.backgroundPosition="center cover"; 
+   //imdiv.style.backgroundSize = "";
+   imdiv.style.height="220px";
+   
+   a.href="movie.html?cname="+data.Title; 
+   a.style.height="190px";   <!-- appending the movie name to anchor tag of the card -->
+  
+
+  
+  // }
+ }
+  })
+  .catch(function(error) {
+    console.log(error);
+  }); 
+  }
+</script>
+</body>
+</html>
